@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://cjo7kvs578kgb"]
+
+[ext_resource type="Texture2D" uid="uid://cr5ebv51yhoor" path="res://WhatsApp Image 2026-11-14 at 09.44.03.jpeg" id="1_ig7tw"]
+
+[node name="main" type="Node2D" unique_id=1905702057]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=283025013]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.15686275, 0.49019608, 0.27450982, 1)
+
+[node name="liNEA" type="ColorRect" parent="." unique_id=1444223138]
+offset_left = 126.0
+offset_top = 74.0
+offset_right = 1026.0
+offset_bottom = 82.0
+
+[node name="player 1" type="Sprite2D" parent="." unique_id=815598902]
+position = Vector2(602.375, 375.875)
+scale = Vector2(3, 1.732)
+texture = ExtResource("1_ig7tw")
+region_enabled = true
+region_rect = Rect2(288.90103, 150.3944, 23.80545, 31.993332)
+region_filter_clip_enabled = true

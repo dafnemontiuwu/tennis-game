@@ -1,0 +1,90 @@
+[gd_scene format=3 uid="uid://cjo7kvs578kgb"]
+
+[ext_resource type="Texture2D" uid="uid://024bos3wrlon" path="res://sprites/gordo tenista.png" id="1_0xm2m"]
+[ext_resource type="Texture2D" uid="uid://bfb3van2rofca" path="res://sprites/pixil-frame-0 (2) (1).png" id="1_lquwl"]
+[ext_resource type="Script" uid="uid://bt3vgwn67bbjw" path="res://gordito_1.gd" id="2_h2yge"]
+[ext_resource type="Texture2D" uid="uid://b8w0nfcgfl0rc" path="res://sprites/GORDO WINI PU.png" id="3_1bvp3"]
+[ext_resource type="Script" uid="uid://dmauqo4ll84ua" path="res://gordito_2.gd" id="4_lquwl"]
+[ext_resource type="Texture2D" uid="uid://mtjqivy5iynm" path="res://sprites/snitch pelota.png" id="6_7mycd"]
+[ext_resource type="Script" uid="uid://h58guneppq7r" path="res://ball.gd" id="7_272bh"]
+[ext_resource type="Texture2D" uid="uid://wbvd4r4ikw26" path="res://sprites/mickey referee.png" id="8_5vw27"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s1eu5"]
+size = Vector2(67.2449, 94.68074)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xooyf"]
+radius = 52.54236
+
+[node name="main" type="Node2D" unique_id=1905702057]
+
+[node name="cancha" type="Sprite2D" parent="." unique_id=766221970]
+position = Vector2(748, 600)
+scale = Vector2(6.3413343, 6.4616666)
+texture = ExtResource("1_lquwl")
+
+[node name="gordito 1" type="Sprite2D" parent="." unique_id=1166663706]
+position = Vector2(616, 314)
+scale = Vector2(0.98, 0.94)
+texture = ExtResource("1_0xm2m")
+script = ExtResource("2_h2yge")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="gordito 1" unique_id=1402808076]
+position = Vector2(3.1122437, 3.7234802)
+shape = SubResource("RectangleShape2D_s1eu5")
+
+[node name="gordito 2" type="Sprite2D" parent="." unique_id=996864896]
+position = Vector2(615, -101)
+texture = ExtResource("3_1bvp3")
+script = ExtResource("4_lquwl")
+
+[node name="marker" type="CanvasLayer" parent="." unique_id=1481684989]
+
+[node name="marcador" type="Label" parent="." unique_id=2128448646]
+offset_left = 486.0
+offset_top = -233.0
+offset_right = 700.0
+offset_bottom = -210.0
+text = "GORDITO 1: 0       WINI PU: 0"
+
+[node name="referee" type="Sprite2D" parent="." unique_id=843328514]
+position = Vector2(858.5, 106.5)
+scale = Vector2(1.0300004, 1.07)
+texture = ExtResource("8_5vw27")
+
+[node name="ball" type="Sprite2D" parent="." unique_id=1946814656 node_paths=PackedStringArray("jugador_1", "jugador_2", "esquina_arriba", "esquina_abajo", "centro_red", "marcador", "texto_arbitro")]
+position = Vector2(656.99994, 311.00003)
+scale = Vector2(0.59, 0.58)
+texture = ExtResource("6_7mycd")
+script = ExtResource("7_272bh")
+jugador_1 = NodePath("../gordito 1")
+jugador_2 = NodePath("../gordito 2")
+esquina_arriba = NodePath("../esquina aaariba")
+esquina_abajo = NodePath("../esquina aabajo")
+centro_red = NodePath("../c3entro red")
+marcador = NodePath("../marcador")
+texto_arbitro = NodePath("../texto arbitro")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ball" unique_id=516393258]
+position = Vector2(-3.3897743, -6.1035156e-05)
+shape = SubResource("CircleShape2D_xooyf")
+debug_color = Color(1, 1, 1, 0.41960785)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=722185950]
+position = Vector2(580, 121)
+zoom = Vector2(0.7, 0.7)
+
+[node name="esquina aaariba" type="Marker2D" parent="." unique_id=354226923]
+position = Vector2(119, -317)
+
+[node name="esquina aabajo" type="Marker2D" parent="." unique_id=1427874794]
+position = Vector2(772, 449)
+
+[node name="c3entro red" type="Marker2D" parent="." unique_id=828942424]
+position = Vector2(609, 118)
+
+[node name="texto arbitro" type="Label" parent="." unique_id=347008706]
+offset_left = 883.0
+offset_top = 37.0
+offset_right = 989.0
+offset_bottom = 60.0
+text = "READY? PLAY!"
